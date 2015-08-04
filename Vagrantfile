@@ -6,6 +6,9 @@ Vagrant.configure(2) do |config|
   config.vm.hostname = "vip.local"
   config.vm.network :private_network, ip: "10.86.73.80"
 
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder "./vip-data", "/data", nfs: true
+
   config.vm.provider "virtualbox" do |v|
     # Use 1GB of memory
     v.memory = 1024
