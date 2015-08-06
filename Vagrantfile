@@ -7,7 +7,8 @@ Vagrant.configure(2) do |config|
   config.vm.network :private_network, ip: "10.86.73.80"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.synced_folder "./vip-data", "/data", nfs: true
+  config.vm.synced_folder "./themes", "/var/www/wp-content/themes", nfs: true, create: true, owner: "www-data", group: "www-data"
+  config.vm.synced_folder "./plugins", "/var/www/wp-content/plugins", nfs: true, create: true, owner: "www-data", group: "www-data"
 
   config.vm.provider "virtualbox" do |v|
     # Use 1GB of memory
